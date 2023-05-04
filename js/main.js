@@ -34,4 +34,8 @@ document.getElementById("btnNext").addEventListener("click", function(){
     const currentImg = images[currentSlide].image;
     console.log(`l'immagine corrente é ${currentImg}`);
     document.getElementById("visible").src = currentImg;
+
+    if (currentSlide == 4) {
+        currentSlide = -1;
+    }
 })
