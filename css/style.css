@@ -57,14 +57,29 @@ img {
 }
 
 #btnPrev {
-    top: 45%;
+    top: 40%;
     left: 30%;
 }
 
 #btnNext {
-    top: 45%;
+    top: 40%;
     right: 30%;
 }
+
+#play{
+    top: 50%;
+    left: 30%;
+    width: auto;
+    border-radius: 20px;
+}
+
+#stop{
+    top: 50%;
+    right: 30%;
+    width: auto;
+    border-radius: 20px;
+}
+
 
 #title, #text{
     display: flex;

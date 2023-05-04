@@ -67,7 +67,31 @@ document.getElementById("btnPrev").addEventListener("click", function(){
         document.getElementById("text").innerText = currentImg.text;
 
     }
-
-
-
 })
+
+document.getElementById("play").addEventListener("click", play);
+document.getElementById("stop").addEventListener("click", stop);
+var tempo;
+
+function play() {
+
+    clearInterval(tempo)
+    tempo = setInterval(play, 1 * 1000);
+
+    if (currentSlide < images.length) {
+        currentSlide++;
+        console.log(`la slide corrente é ${currentSlide}`);
+        const currentImg = images[currentSlide-1];
+        console.log(`l'immagine corrente é ${currentImg.image}`);
+        document.getElementById("visible").src = currentImg.image;
+        document.getElementById("title").innerText = currentImg.title;
+        document.getElementById("text").innerText = currentImg.text;
+        if (currentSlide >= images.length) {
+            currentSlide = 0
+        }
+    }
+}
+
+function stop() {
+    clearInterval(tempo)
+}
