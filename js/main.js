@@ -39,3 +39,16 @@ document.getElementById("btnNext").addEventListener("click", function(){
         currentSlide = -1;
     }
 })
+
+document.getElementById("btnPrev").addEventListener("click", function(){
+    console.log(`la slide corrente é ${currentSlide}`);
+    if (currentSlide == 0) {
+        currentSlide = 5;
+    }
+    currentSlide--;
+    const currentImg = images[currentSlide].image;
+    console.log(`l'immagine corrente é ${currentImg}`);
+    document.getElementById("visible").src = currentImg;
+
+
+})
