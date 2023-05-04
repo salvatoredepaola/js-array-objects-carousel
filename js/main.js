@@ -33,26 +33,41 @@ document.getElementById("slider").innerHTML = first;
 let currentSlide = 1;
 
 console.log(`la slide corrente é ${currentSlide}`);
-console.log(`l'immagine corrente é ${images[0].image}`);
-document.getElementById("title").innerText = images[0].title;
-document.getElementById("text").innerText = images[0].text;
+// console.log(`l'immagine corrente é ${images[0].image}`);
+// document.getElementById("title").innerText = images[0].title;
+// document.getElementById("text").innerText = images[0].text;
 
 document.getElementById("btnNext").addEventListener("click", function(){
-    currentSlide++;
-    console.log(`la slide corrente é ${currentSlide}`);
-    const currentImg = images[currentSlide-1];
-    console.log(`l'immagine corrente é ${currentImg.image}`);
-    document.getElementById("visible").src = currentImg.image;
-    document.getElementById("title").innerText = currentImg.title;
-    document.getElementById("text").innerText = currentImg.text;
+    if (currentSlide < images.length) {
+        currentSlide++;
+        console.log(`la slide corrente é ${currentSlide}`);
+        const currentImg = images[currentSlide-1];
+        console.log(`l'immagine corrente é ${currentImg.image}`);
+        document.getElementById("visible").src = currentImg.image;
+        document.getElementById("title").innerText = currentImg.title;
+        document.getElementById("text").innerText = currentImg.text;
+        if (currentSlide >= images.length) {
+            currentSlide = 0
+        }
+    }
+
 })
 
 document.getElementById("btnPrev").addEventListener("click", function(){
-    currentSlide--;
-    console.log(`la slide corrente é ${currentSlide}`);
-    const currentImg = images[currentSlide];
-    console.log(`l'immagine corrente é ${currentImg.image}`);
-    document.getElementById("visible").src = currentImg.image;
+    if (currentSlide <= 1) {
+        currentSlide = images.length+1;
+    }
+    if (currentSlide > 1) {
+        currentSlide--;
+        console.log(`la slide corrente é ${currentSlide}`);
+        const currentImg = images[currentSlide-1];
+        console.log(`l'immagine corrente é ${currentImg.image}`);
+        document.getElementById("visible").src = currentImg.image;
+        document.getElementById("title").innerText = currentImg.title;
+        document.getElementById("text").innerText = currentImg.text;
+
+    }
+
 
 
 })
